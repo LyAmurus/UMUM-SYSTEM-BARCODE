@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Authentication System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="card">
+            <h2>VERIFIKASI PRODUK</h2>
+            <p class="subtitle">Sistem Pengecekan Keaslian Resmi</p>
+
+            <!-- Area Simulasi Scanner -->
+            <div class="scanner-box">
+                <div class="laser-line"></div>
+                <span class="scanner-text">Area Pemindai Kamera Aktif</span>
+            </div>
+
+            <div class="divider">ATAU CEK MANUAL</div>
+
+            <!-- Input Barcode -->
+            <input type="text" id="barcode-input" placeholder="Masukkan 11 digit kode..." maxlength="11">
+
+            <!-- Tombol Verifikasi -->
+            <button id="verify-btn" onclick="prosesVerifikasi()">
+                <span id="btn-text">Verifikasi Produk</span>
+                <div id="loading-spinner" class="spinner" style="display: none;"></div>
+            </button>
+
+            <!-- Kartu Hasil Pengecekan -->
+            <div id="result-card" class="result-card"></div>
+        </div>
+    </div>
+
+    <!-- CryptoJS Library untuk Enkripsi MD5 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
