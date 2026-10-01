@@ -13,10 +13,9 @@
             <h2>VERIFIKASI PRODUK</h2>
             <p class="subtitle">Sistem Pengecekan Keaslian Resmi</p>
 
-            <!-- Area Simulasi Scanner -->
-            <div class="scanner-box">
-                <div class="laser-line"></div>
-                <span class="scanner-text">Area Pemindai Kamera Aktif</span>
+            <!-- Area Pemindai Kamera Aktif -->
+            <div id="reader" class="scanner-box">
+                <div class="scanner-text">Memuat kamera...</div>
             </div>
 
             <div class="divider">ATAU CEK MANUAL</div>
@@ -35,6 +34,8 @@
         </div>
     </div>
 
+    <!-- Library HTML5-Qrcode untuk akses kamera -->
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
     <!-- CryptoJS Library untuk Enkripsi MD5 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <script src="script.js"></script>

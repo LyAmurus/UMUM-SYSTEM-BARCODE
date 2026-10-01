@@ -4,9 +4,46 @@
 const API_URL = "https://web.mark.toewin.com/webapi1/channel/api/codeStatusInfo/tCheckCode";
 const BRAND_ID = 2140;                 
 const ACCOUNT = "toewin1074"; 
-const PASSWORD = "ljaDe7T8N3YvT9Ka";   // Sesuai dokumentasi menggunakan passWord
+const PASSWORD = "ljaDe7T8N3YvT9Ka";   // Menggunakan passWord (W besar) sesuai dokumentasi
 // ==========================================
 
+let html5QrCode;
+
+// Inisialisasi Kamera otomatis saat halaman dibuka
+document.addEventListener('DOMContentLoaded', function() {
+    html5QrCode = new Html5Qrcode("reader");
+    const config = { fps: 10, qrbox: { width: 140, height: 140 } };
+
+    html5QrCode.start(
+        { facingMode: "environment" }, // Menggunakan kamera belakang HP
+        config,
+        (decodedText) => {
+            // Ketika QR berhasil terbaca, masukkan ke input otomatis
+            document.getElementById('barcode-input').value = decodedText;
+            matikanKamera();
+            // Langsung jalankan proses verifikasi
+            prosesVerifikasi();
+        },
+        (errorMessage) => {
+            // Abaikan error frame kosong saat mencari QR
+        }
+    ).catch((err) => {
+        console.error("Gagal akses kamera:", err);
+        const scannerText = document.querySelector('.scanner-text');
+        if(scannerText) {
+            scannerText.innerText = "Kamera tidak aktif (Butuh HTTPS/Izin)";
+        }
+    });
+});
+
+// Fungsi untuk mematikan kamera setelah discan
+function matikanKamera() {
+    if (html5QrCode && html5QrCode.isScanning) {
+        html5QrCode.stop().catch(err => console.log("Gagal mematikan kamera", err));
+    }
+}
+
+// Fungsi Utama Verifikasi
 function prosesVerifikasi() {
     const inputVal = document.getElementById('barcode-input').value;
     const btn = document.getElementById('verify-btn');
@@ -19,6 +56,8 @@ function prosesVerifikasi() {
         alert("Harap masukkan kode terlebih dahulu.");
         return;
     }
+
+    matikanKamera();
 
     // 2. Atur Tampilan Status Loading
     resultCard.classList.remove('show');
