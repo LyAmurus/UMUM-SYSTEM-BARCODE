@@ -66,7 +66,7 @@ function prosesVerifikasi() {
             
             resultCard.innerHTML = `
                 ✨ <b>${data._message || "PRODUK TERVERIFIKASI ASLI"}</b><br>
-                <hr style="margin: 8px 0; border: 0.5px solid #c8e6c9;">
+                <hr style="margin: 8px 0; border: 0.5px solid #c8e6c9;">    
                 <span style='font-size:11px; color:#388e3c;'>Telah dicek: ${totalScan} kali | Pengecekan pertama: ${tglPertama}</span>
             `;
         } else {
