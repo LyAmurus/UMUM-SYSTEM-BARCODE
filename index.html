@@ -3,29 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Authentication System</title>
+    <title>UMUM SYSTEM BARCODE — Authenticity Protection</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="container">
-        <div class="card">
-            <h2>VERIFIKASI PRODUK</h2>
-            <p class="subtitle">Sistem Pengecekan Keaslian Resmi</p>
+    <!-- Header / Navigasi Atas -->
+    <header class="navbar">
+        <div class="logo">BARCODE SYSTEM</div>
+        <div class="nav-right">OFFICIAL AUTHENTICITY PROTECTION</div>
+    </header>
 
-            <!-- Area Pemindai Kamera Aktif -->
+    <!-- Konten Utama (Landing Page Estetik) -->
+    <main class="hero-section">
+        <div class="hero-content">
+            <h1>Product,<br>Authentic</h1>
+            <p class="hero-desc">Every official product carries a unique identity. Verify your product authenticity in seconds.</p>
+            
+            <!-- Tombol Utama untuk Membuka Popup Verifikasi -->
+            <button class="btn-verify-trigger" onclick="bukaModal()">VERIFY PRODUCT</button>
+            
+            <div class="footer-note">— OFFICIAL VERIFICATION SYSTEM</div>
+        </div>
+
+        <!-- Ilustrasi / Gambar Produk di Sisi Kanan -->
+        <div class="hero-image-wrapper">
+            <!-- Kamu bisa mengganti URL gambar di bawah dengan foto produk asli kantormu -->
+            <img src="Ly.png" alt="Product Display" class="hero-product-img">
+            <div class="bubble b1"></div>
+            <div class="bubble b2"></div>
+        </div>
+    </main>
+
+    <!-- Modal Popup untuk Scan & Input Kode -->
+    <div id="verify-modal" class="modal-overlay">
+        <div class="modal-card">
+            <button class="close-btn" onclick="tutupModal()">&times;</button>
+            
+            <span class="modal-brand-tag">BARCODE SYSTEM</span>
+            <h2>Check your product</h2>
+            <p class="modal-subtitle">Scan the QR code or enter the 11-digit authentication code found on your product.</p>
+
+            <!-- Area Kamera / Scanner -->
             <div id="reader" class="scanner-box">
                 <div class="scanner-text">Memuat kamera...</div>
             </div>
 
-            <div class="divider">ATAU CEK MANUAL</div>
+            <div class="divider">OR ENTER CODE</div>
 
             <!-- Input Barcode -->
-            <input type="text" id="barcode-input" placeholder="Masukkan 11 digit kode..." maxlength="11">
+            <div class="input-group-label">AUTHENTICATION CODE</div>
+            <input type="text" id="barcode-input" placeholder="Enter 11-digit product code" maxlength="11">
 
-            <!-- Tombol Verifikasi -->
-            <button id="verify-btn" onclick="prosesVerifikasi()">
-                <span id="btn-text">Verifikasi Produk</span>
+            <!-- Tombol Proses Verifikasi -->
+            <button id="verify-btn" class="btn-submit" onclick="prosesVerifikasi()">
+                <span id="btn-text">CHECK PRODUCT</span>
                 <div id="loading-spinner" class="spinner" style="display: none;"></div>
             </button>
 
@@ -34,9 +67,8 @@
         </div>
     </div>
 
-    <!-- Library HTML5-Qrcode untuk akses kamera -->
+    <!-- Script Pendukung -->
     <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
-    <!-- CryptoJS Library untuk Enkripsi MD5 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <script src="script.js"></script>
 </body>
