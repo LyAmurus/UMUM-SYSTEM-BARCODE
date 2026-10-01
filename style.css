@@ -8,10 +8,10 @@
 body {
     background: #f4eae6;
     color: #2c2c2c;
-    height: 100vh;
-    overflow-x: hidden;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
 }
 
 /* Navbar */
@@ -19,22 +19,24 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 60px;
+    padding: 24px 40px;
+    width: 100%;
 }
 
 .logo {
     font-family: 'Playfair Display', serif;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 600;
     letter-spacing: 2px;
     color: #1a1a1a;
 }
 
 .nav-right {
-    font-size: 10px;
-    letter-spacing: 2px;
+    font-size: 9px;
+    letter-spacing: 1.5px;
     color: #8c7872;
     font-weight: 600;
+    text-align: right;
 }
 
 /* Hero Section */
@@ -43,21 +45,25 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 60px 60px 60px;
-    position: relative;
+    padding: 20px 40px 40px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    gap: 40px;
 }
 
 .hero-content {
-    max-width: 500px;
+    flex: 1;
+    max-width: 520px;
     z-index: 2;
 }
 
 .hero-content h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 64px;
+    font-size: 56px;
     line-height: 1.1;
     color: #2c2c2c;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     font-weight: 400;
 }
 
@@ -65,22 +71,22 @@ body {
     font-size: 14px;
     color: #665c58;
     line-height: 1.6;
-    margin-bottom: 35px;
+    margin-bottom: 28px;
 }
 
 .btn-verify-trigger {
     background: #e0538a;
     color: #ffffff;
     border: none;
-    padding: 16px 36px;
+    padding: 15px 32px;
     border-radius: 30px;
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 2px;
     cursor: pointer;
-    box-shadow: 0 10px 25px rgba(224, 83, 138, 0.3);
+    box-shadow: 0 8px 20px rgba(224, 83, 138, 0.3);
     transition: 0.3s ease;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .btn-verify-trigger:hover {
@@ -96,17 +102,18 @@ body {
 
 /* Sisi Kanan: Gambar Produk & Dekorasi */
 .hero-image-wrapper {
+    flex: 1;
     position: relative;
-    width: 480px;
-    height: 420px;
+    max-width: 450px;
+    height: 380px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .hero-product-img {
-    width: 1000%;
-    max-height: 380px;
+    width: 100%;
+    max-height: 350px;
     object-fit: contain;
     border-radius: 20px;
     filter: drop-shadow(0 15px 30px rgba(0,0,0,0.12));
@@ -123,19 +130,8 @@ body {
     z-index: 3;
 }
 
-.b1 {
-    width: 60px;
-    height: 60px;
-    bottom: 20px;
-    left: 10px;
-}
-
-.b2 {
-    width: 40px;
-    height: 40px;
-    top: 30px;
-    right: 20px;
-}
+.b1 { width: 50px; height: 50px; bottom: 10px; left: 10px; }
+.b2 { width: 35px; height: 35px; top: 20px; right: 10px; }
 
 /* Modal Popup Overlay */
 .modal-overlay {
@@ -144,7 +140,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.45);
     backdrop-filter: blur(5px);
     display: flex;
     justify-content: center;
@@ -153,6 +149,7 @@ body {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
+    padding: 15px;
 }
 
 .modal-overlay.active {
@@ -163,14 +160,16 @@ body {
 .modal-card {
     background: #ffffff;
     width: 100%;
-    max-width: 440px;
-    padding: 40px;
+    max-width: 420px;
+    padding: 30px 25px;
     border-radius: 24px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     position: relative;
     text-align: left;
     transform: translateY(20px);
     transition: transform 0.3s ease;
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 .modal-overlay.active .modal-card {
@@ -179,13 +178,14 @@ body {
 
 .close-btn {
     position: absolute;
-    top: 25px;
-    right: 25px;
+    top: 20px;
+    right: 20px;
     background: none;
     border: none;
-    font-size: 24px;
+    font-size: 26px;
     color: #999;
     cursor: pointer;
+    line-height: 1;
 }
 
 .modal-brand-tag {
@@ -197,21 +197,21 @@ body {
 
 .modal-card h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 28px;
+    font-size: 24px;
     color: #1a1a1a;
-    margin: 5px 0 10px 0;
+    margin: 4px 0 8px 0;
 }
 
 .modal-subtitle {
     font-size: 12px;
     color: #777;
     line-height: 1.5;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .scanner-box {
     width: 100%;
-    height: 160px;
+    height: 150px;
     background: #111;
     border-radius: 12px;
     position: relative;
@@ -219,7 +219,7 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 #reader video {
@@ -239,21 +239,20 @@ body {
     font-size: 10px;
     color: #bbb;
     letter-spacing: 1px;
-    margin: 20px 0;
-    position: relative;
+    margin: 15px 0;
 }
 
 .input-group-label {
     font-size: 10px;
     letter-spacing: 1px;
     color: #888;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     font-weight: 600;
 }
 
 input {
     width: 100%;
-    padding: 14px 16px;
+    padding: 13px 16px;
     border: 1px solid #e0e0e0;
     border-radius: 12px;
     font-size: 14px;
@@ -261,7 +260,7 @@ input {
     outline: none;
     transition: 0.3s;
     background: #fafafa;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 input:focus {
@@ -307,8 +306,8 @@ input:focus {
 }
 
 .result-card {
-    margin-top: 20px;
-    padding: 14px;
+    margin-top: 15px;
+    padding: 12px;
     border-radius: 10px;
     font-size: 12px;
     display: none;
@@ -331,11 +330,58 @@ input:focus {
     border: 1px solid #ffcdd2;
 }
 
-/* Responsif untuk HP */
+/* ==========================================
+   PENGATURAN KHUSUS LAYAR HP (MOBILE RESPONSIVE)
+   ================================---------- */
 @media(max-width: 768px) {
-    .navbar { padding: 20px; }
-    .hero-section { padding: 0 20px 20px 20px; flex-direction: column; text-align: center; }
-    .hero-content h1 { font-size: 40px; }
-    .hero-image-wrapper { width: 100%; height: 260px; margin-top: 20px; }
-    .modal-card { padding: 25px; }
+    .navbar {
+        padding: 16px 20px;
+    }
+    
+    .logo {
+        font-size: 18px;
+    }
+
+    .nav-right {
+        font-size: 8px;
+    }
+
+    .hero-section {
+        flex-direction: column;
+        padding: 10px 20px 30px 20px;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-content h1 {
+        font-size: 38px;
+        margin-bottom: 12px;
+    }
+
+    .hero-desc {
+        font-size: 13px;
+        margin-bottom: 20px;
+    }
+
+    .btn-verify-trigger {
+        width: 100%;
+        padding: 14px;
+        margin-bottom: 20px;
+    }
+
+    .hero-image-wrapper {
+        width: 100%;
+        height: 220px;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    .modal-card {
+        padding: 24px 20px;
+        margin: 10px;
+    }
 }
